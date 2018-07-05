@@ -21,32 +21,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-
-#define VENDOR_ID       0x1209
-#define PRODUCT_ID      0xA1E5
-#define DEVICE_VER      0x0008
-#define MANUFACTURER    Technomancy
-#define PRODUCT         Atreus
-#define DESCRIPTION     q.m.k. keyboard firmware for Atreus
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x3060
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    Mystery
+#define PRODUCT         Dactyl-Manuform keyboard
+#define DESCRIPTION     An ergonomic split keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 4
-#define MATRIX_COLS 11
+// Rows are doubled-up
+#define MATRIX_ROWS 12
+#define MATRIX_COLS 6
 
-// Change this to how you wired your keyboard
-// COLS: Left to right, ROWS: Top to bottom
-#if defined(ATREUS_ASTAR)
-#   define MATRIX_ROW_PINS { D0, D1, D3, D2 }
+// wiring of each half
+#define MATRIX_ROW_PINS { D4, C6, D7, E6, B4, B5 }
+#define MATRIX_COL_PINS { F6, F7, B1, B3, B2, B6 }
+// #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6 } //uncomment this line and comment line above if you need to reverse left-to-right key order
 
-// #   define MATRIX_COL_PINS { D7, C6, B5, B4, E6, D4, B6, F6, F7, D6, B7 }
-#   define MATRIX_COL_PINS { B7, D6, F7, F6, B6, D4, E6, B4, B5, C6, D7 }
-
-#   define UNUSED_PINS
-#elif defined(ATREUS_TEENSY2)
-#   define MATRIX_ROW_PINS { D0, D1, D2, D3 }
-#   define MATRIX_COL_PINS { F6, F5, F4, B7, B6, B5, B4, B3, B2, B1, B0 }
-#   define UNUSED_PINS
-#endif
+#define CATERINA_BOOTLOADER
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
@@ -55,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_HAS_GHOST
 
 /* number of backlight levels */
-//#define BACKLIGHT_LEVELS 3
+// #define BACKLIGHT_LEVELS 3
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCING_DELAY 5
@@ -70,16 +62,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
+/* ws2812 RGB LED */
+#define RGB_DI_PIN D3
+#define RGBLIGHT_TIMER
+#define RGBLED_NUM 12    // Number of LEDs
+#define ws2812_PORTREG  PORTD
+#define ws2812_DDRREG   DDRD
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
  */
 
 /* disable debug print */
-//#define NO_DEBUG
+// #define NO_DEBUG
 
 /* disable print */
-//#define NO_PRINT
+// #define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER
@@ -87,5 +86,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
+
 
 #endif
