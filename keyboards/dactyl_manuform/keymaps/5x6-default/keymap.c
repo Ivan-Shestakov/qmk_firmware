@@ -24,20 +24,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_ESC,    KC_1,    KC_2,    KC_3,   KC_4,   KC_5, 
    KC_GRV,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,
    KC_TAB,    KC_A,    KC_S,    KC_D,   KC_F,   KC_G,
-   KC_LSHIFT, KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,
-                       KC_TAB,  KC_BSLS,
-                               LT(_FN, KC_DEL), KC_LSFT, 
-                               KC_SPC,   KC_LCTRL,
-                               KC_ENTER, KC_LALT,
+   KC_LSHIFT, SFT_T(KC_Z),    KC_X,    KC_C,   KC_V,   KC_B,
+            KC_LEFT, KC_RIGHT, 
+                               LT(_SYM, KC_BSPC), SFT_T(KC_DEL), 
+                               KC_LPRN, CTL_T(KC_ESC), 
+                               KC_LCBR, LT(_FN, KC_BSLS),
         // right hand
                      KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS,
                      KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_EQL,
                      KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT, 
-                     KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSHIFT,
-                                      KC_LBRC, KC_RBRC,
-        KC_SPC, LT(_FN, KC_BSPC), 
-        CTL_T(KC_PGUP), KC_PGDN,
-        KC_LALT, KC_LGUI),
+                     KC_N,    KC_M,   KC_COMM, KC_DOT,  SFT_T(KC_SLSH), KC_RSHIFT,
+                                       KC_UP, KC_DOWN,
+        ALT_T(KC_ENT), LT(_SYM, KC_SPC), 
+        GUI_T(KC_SCLN), KC_RPRN,
+        LT(_MOVE, KC_TAB), KC_RCBR),
 [_COLEMAK] = KEYMAP_5x6(
   // left hand
    _______,  _______,  _______,  _______,  _______, _______,
@@ -55,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 					 KC_K,    KC_M,    KC_COMM, KC_DOT,  SFT_T(KC_SLSH), _______,
                                        KC_UP, KC_DOWN,
         ALT_T(KC_ENT), LT(_SYM, KC_SPC), 
-        GUI_T(KC_SCLN), KC_RCBR,
-        LT(_MOVE, KC_TAB), KC_RPRN),
+        GUI_T(KC_SCLN), KC_RPRN,
+        LT(_MOVE, KC_TAB), KC_RCBR),
 [_SYM] = KEYMAP_5x6(
   // left hand
   _______, _______, _______, _______, _______, _______,
@@ -78,6 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LALT, KC_DQT),
 [_MOVE] = KEYMAP_5x6(
   // left hand
+  // TODO modify move layer to resemble Dreymar's extend layer
   _______, _______, _______, _______, _______, _______,
   _______, RESET,   KC_WH_U, KC_MS_U, KC_WH_D,  KC_WH_U,
   _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R,  KC_LGUI,
