@@ -50,7 +50,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    _______,   KC_Q,      KC_W,     KC_F,     KC_P,    KC_G,
    _______,   LALT_T(KC_A),      KC_R,     KC_S,     CTL_T(KC_T),    KC_D,
    _______,   SFT_T(KC_Z),KC_X,    KC_C,     KC_V,    KC_B,
-                       _______,  _______, 
+                       _______,  KC_LWIN, 
                                	             LT(_SYM, KC_SPC), SFT_T(KC_ENT), 
                                                        LT(_MOVE, KC_ESC), GUI_T(KC_TAB), 
                                                        MO(_FN), KC_TILD,
@@ -84,6 +84,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                           '------+------' '------+------'
  *                                           | _FN  |  ~   | |   ~  |  _FN |
  *                                           '------+------' '------+------'
+ *   
  */
 [_SYM] = KEYMAP_5x6(
   // left hand
@@ -101,10 +102,33 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_EQL,  KC_4, KC_5, KC_6, KC_ASTR,_______,
                      KC_MINS, KC_1, KC_2, KC_3, KC_SLSH,_______,
                                        KC_0, KC_DOT,
-        LT(_MOVE, KC_SPC), LT(_SYM, KC_BSPC), 
+        SFT_T(KC_BSPC), LT(_SYM, KC_DEL), 
   _______, _______,
   _______, MO(_FN)),
-[_MOVE] = KEYMAP_5x6(
+/* _MOVE
+ * a movement layer inspired by Dreymar's bag of keyboard tricks (from Colemak forum)
+ * ,-----------------------------------------,                             ,-----------------------------------------,
+ * |      |      |      |      |      |      |                             |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
+ * |      |      | WhUP | MsUP | WhDN | WhUP |                             |   ⤒  | Home |   ↑  | End  |      |      |
+ * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
+ * |      | BTN3 |MsLEFT| MsDN |MsRIGHT| GUI |                             |   ⤓  |   ←  |   ↓  |   →  |      |      |
+ * |------+------+------+------+------+------|                             |------|------+------+------+------+------|
+ * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps |  Del |  Del | Tab  |      |      |
+ * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
+ *               |   `  | Tab  |                                                         |      |      |
+ *               '------+------'-------------'                             '-------------'------+------'
+ *                             | Space| Enter|                             |BckSpc| Del  |
+ *                             | _SYM | Shift|                             |Shift | _SYM |
+ *                             '------+------'                             '------+------'
+ *                                           '------+------' '------+------'
+ *                                           | Esc  | Tab  | |  Tab |  Esc |
+ *                                           | _MOVE|      | |      |_MOVE |
+ *                                           '------+------' '------+------'
+ *                                           | _FN  |  ~   | |   ~  |  _FN |
+ *                                           '------+------' '------+------'
+ */
+ [_MOVE] = KEYMAP_5x6(
   // left hand
   _______, _______, _______, _______, _______, _______,
   _______, _______,   KC_WH_U, KC_MS_U, KC_WH_D,  KC_WH_U,
@@ -120,7 +144,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_PGDN, KC_LEFT, KC_DOWN,   KC_RIGHT, _______, _______,
                      KC_CAPS, KC_DEL,  KC_DEL,  LALT(KC_TAB),  _______, _______,
                                        _______, _______,
-        LT(_MOVE, KC_SPC), LT(_SYM, KC_BSPC), 
+        SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   _______, _______,
   _______, MO(_FN)),
 [_FN] = KEYMAP_5x6(
@@ -139,7 +163,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_CALC, KC_MAIL, KC_MYCM, KC_WHOM, _______, _______,
                      _______, _______, _______, _______, _______, _______,
                                        KC_MINS, KC_SCLN,
-        LT(_MOVE, KC_SPC), LT(_SYM, KC_BSPC), 
+        SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   _______, _______,
   RESET, MO(_FN)),
 };
