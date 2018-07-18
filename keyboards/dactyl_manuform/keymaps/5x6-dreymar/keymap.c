@@ -31,7 +31,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |   z  |   x  |   c  |   v  |   b  |                             |   k  |   m  |   ,  |   .  |   /  |      |
  * |      | Shft |      |      |      |      |                             |      |      |      |      | Shft |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
- *               |      |      |                                                         |Insert|   ;  |
+ *               |      | LWIN   |                                                         |Insert|   ;  |
  *               '------+------'-------------'                             '-------------'------+------'
  *                             | Space| Enter|                             |BckSpc| Del  |
  *                             | _SYM | Shift|                             |Shift | _SYM |
@@ -110,9 +110,9 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------,                             ,-----------------------------------------,
  * |      |      |      |      |      |      |                             |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
- * |      |      | WhUP | MsUP | WhDN | WhUP |                             |   ⤒  | Home |   ↑  | End  |      |      |
+ * |      |      | WhUP | MsUP | WhDN | WhUP |                             |   ⤒  | Home |   ↑  | End  | Del  |      |
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
- * |      | BTN3 |MsLEFT| MsDN |MsRIGHT| GUI |                             |   ⤓  |   ←  |   ↓  |   →  |      |      |
+ * |      | BTN3 |MsLEFT| MsDN |MsRIGHT| GUI |                             |   ⤓  |   ←  |   ↓  |   →  | Bsp |      |
  * |------+------+------+------+------+------|                             |------|------+------+------+------+------|
  * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps |  Del |  Del | Tab  |      |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
@@ -140,9 +140,9 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                        MO(_FN), _______,
         // right hand
                     _______, _______, _______, _______, _______, _______,
-                     KC_PGUP, KC_HOME, KC_UP, KC_END, _______, _______,
-                     KC_PGDN, KC_LEFT, KC_DOWN,   KC_RIGHT, _______, _______,
-                     KC_CAPS, KC_DEL,  KC_DEL,  LALT(KC_TAB),  _______, _______,
+                     KC_PGUP, KC_HOME, KC_UP, KC_END, KC_DEL, _______,
+                     KC_PGDN, KC_LEFT, KC_DOWN,   KC_RIGHT, KC_BSPC, _______,
+                     KC_CAPS, KC_DEL,  KC_DEL,  KC_TAB,  _______, _______,
                                        _______, _______,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   _______, _______,
