@@ -9,14 +9,20 @@ extern keymap_config_t keymap_config;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _COLEMAK 0
-#define _MOVE   1
-#define _SYM    2
-#define _FN     3
+#define _QWERTY 1
+#define _MOVE   2
+#define _SYM    3
+#define _FN     4
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
+// The main idea of this layout is to check whether I can get used to 4x5 layout of the Dactyl Manuform (even though 
+// I've built 5x6 version) S
+// After trying it for several weeks, apparently I can! So now I'm adding back the numbers row and the outermost column 
+// to the mapping.
+// As well as QWERTY layout as an toggle'able option
 const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Base (COLEMAK)
  * Note the usage of modifiers on the home row
@@ -31,7 +37,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |   z  |   x  |   c  |   v  |   b  |                             |   k  |   m  |   ,  |   .  |   /  |      |
  * |      | Shft |      |      |      |      |                             |      |      |      |      | Shft |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
- *               |      | LWIN   |                                                         |Insert|   ;  |
+ *               |      | LWIN |                                                         |Insert|   ;  |
  *               '------+------'-------------'                             '-------------'------+------'
  *                             | Space| Enter|                             |BckSpc| Del  |
  *                             | _SYM | Shift|                             |Shift | _SYM |
@@ -46,23 +52,44 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       	      
 [_COLEMAK] = KEYMAP_5x6(
   // left hand
-   _______,  _______,  _______,  _______,  _______, _______,
-   _______,   KC_Q,      KC_W,     KC_F,     KC_P,    KC_G,
-   _______,   LALT_T(KC_A),      KC_R,     KC_S,     CTL_T(KC_T),    KC_D,
-   _______,   SFT_T(KC_Z),KC_X,    KC_C,     KC_V,    KC_B,
-                       _______,  KC_LWIN, 
+   KC_ESC ,  KC_1,  KC_2,  KC_3,  KC_4, KC_5,
+   KC_TAB,   KC_Q,      KC_W,     KC_F,     KC_P,    KC_G,
+   KC_LSHIFT,   LALT_T(KC_A),      KC_R,     KC_S,     CTL_T(KC_T),    KC_D,
+   KC_LCTL,   SFT_T(KC_Z),KC_X,    KC_C,     KC_V,    KC_B,
+                       KC_LALT,  KC_LWIN, 
                                	             LT(_SYM, KC_SPC), SFT_T(KC_ENT), 
                                                        LT(_MOVE, KC_ESC), GUI_T(KC_TAB), 
                                                        MO(_FN), KC_TILD,
         // right hand
-                  _______,  _______,  _______,  _______,  _______,     _______,
-                    KC_J,   KC_L,      KC_U,     KC_Y,    KC_QUOT,     _______,
-                    KC_H,   RCTL_T(KC_N), KC_E,  KC_I,  RALT_T(KC_O),  _______,
-		                KC_K,   KC_M,    KC_COMM, KC_DOT, RSFT_T(KC_SLSH), _______,
+                    KC_6,   KC_7,  KC_8,  KC_9,  KC_0,     KC_BSPC,
+                    KC_J,   KC_L,      KC_U,     KC_Y,    KC_QUOT,     KC_ENTER,
+                    KC_H,   RCTL_T(KC_N), KC_E,  KC_I,  RALT_T(KC_O),  KC_RSFT,
+		                KC_K,   KC_M,    KC_COMM, KC_DOT, RSFT_T(KC_SLSH), KC_RCTL,
                                        KC_INS, KC_SCLN,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL), 
   GUI_T(KC_TAB), LT(_MOVE, KC_ESC),
   KC_TILD, MO(_FN)),
+
+[_QWERTY] = KEYMAP_5x6(
+  // left hand
+   KC_ESC,    KC_1,    KC_2,    KC_3,   KC_4,   KC_5, 
+   KC_TAB,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,
+   KC_LSFT,    KC_A,    KC_S,    KC_D,   KC_F,   KC_G,
+   KC_LCTL, SFT_T(KC_Z),    KC_X,    KC_C,   KC_V,   KC_B,
+                       KC_LALT,  KC_LWIN, 
+                               	             LT(_SYM, KC_SPC), SFT_T(KC_ENT), 
+                                                       LT(_MOVE, KC_ESC), GUI_T(KC_TAB), 
+                                                       MO(_FN), KC_TILD,
+        // right hand
+                     KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPACE,
+                     KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_ENTER,
+                     KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_RSFT, 
+                     KC_N,    KC_M,   KC_COMM, KC_DOT,  SFT_T(KC_SLSH), KC_RCTL,
+                                       KC_INS, KC_SCLN,
+        SFT_T(KC_BSPC), LT(_SYM, KC_DEL), 
+  GUI_T(KC_TAB), LT(_MOVE, KC_ESC),
+  KC_TILD, MO(_FN)),
+        
 /* _SYM
  * ,-----------------------------------------,                             ,-----------------------------------------,
  * |      |      |      |      |      |      |                             |      |      |      |      |      |      |
@@ -155,7 +182,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    _______, KC_F9, KC_F10,  KC_F11, KC_F12, KC_WH_D,
             KC_GRV,  KC_TAB, 
                                	             LT(_SYM, KC_SPC), SFT_T(KC_ENT), 
-                                                       _______, _______, 
+                                                       TO(_QWERTY), TO(_COLEMAK), 
                                                        MO(_FN), RESET,
         // right hand
                     _______, _______, _______, _______, _______, _______,
@@ -164,7 +191,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      _______, _______, _______, _______, _______, _______,
                                        KC_MINS, KC_SCLN,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
-  _______, _______,
+  TO(_COLEMAK), TO(_QWERTY),
   RESET, MO(_FN)),
 };
 
