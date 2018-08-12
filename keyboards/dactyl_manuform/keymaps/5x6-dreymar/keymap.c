@@ -187,8 +187,8 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                     _______, _______, _______, _______, _______, _______,
                      _______, _______, _______, _______, _______, _______,
-                     KC_CALC, KC_MAIL, KC_MYCM, KC_WHOM, _______, _______,
-                     _______, _______, _______, _______, _______, _______,
+                     KC_CALC, KC_MAIL, KC_MYCM, KC_WHOM, KC_PSCR, _______,
+                     _______, _______, _______, _______, KC_SCROLLLOCK, _______,
                                        KC_MINS, KC_SCLN,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   TO(_COLEMAK), TO(_QWERTY),
