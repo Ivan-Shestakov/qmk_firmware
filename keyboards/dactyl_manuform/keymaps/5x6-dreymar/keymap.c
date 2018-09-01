@@ -141,7 +141,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
  * |      | BTN3 |MsLEFT| MsDN |MsRIGHT| GUI |                             |   ⤓  |   ←  |   ↓  |   →  | Bsp |      |
  * |------+------+------+------+------+------|                             |------|------+------+------+------+------|
- * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps |  Del |  Del | Tab  |      |      |
+ * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps | PScr |Insert| Tab  |      |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
  *               |   `  | Tab  |                                                         |      |      |
  *               '------+------'-------------'                             '-------------'------+------'
@@ -169,7 +169,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     _______, _______, _______, _______, _______, _______,
                      KC_PGUP, KC_HOME, KC_UP, KC_END, KC_DEL, _______,
                      KC_PGDN, KC_LEFT, KC_DOWN,   KC_RIGHT, KC_BSPC, _______,
-                     KC_CAPS, KC_DEL,  KC_DEL,  KC_TAB,  _______, _______,
+                     KC_CAPS, KC_PSCR,  KC_INS,  KC_TAB,  _______, _______,
                                        _______, _______,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   _______, _______,
