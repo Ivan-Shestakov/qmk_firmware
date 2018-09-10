@@ -137,11 +137,11 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------,                             ,-----------------------------------------,
  * |      |      |      |      |      |      |                             |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
- * |      |      | WhUP | MsUP | WhDN | WhUP |                             |   ⤒  | Home |   ↑  | End  | Del  |      |
+ * |      | PScr | WhUP | MsUP | WhDN | WhUP |                             |   ⤒  | Home |   ↑  | End  | Del  |      |
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
  * |      | BTN3 |MsLEFT| MsDN |MsRIGHT| GUI |                             |   ⤓  |   ←  |   ↓  |   →  | Bsp |      |
  * |------+------+------+------+------+------|                             |------|------+------+------+------+------|
- * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps | PScr |Insert| Tab  |      |      |
+ * |      | BTN1 | BTN5 | BTN2 |  BTN3| WhDN |                             | Caps |      |Insert| Tab  |      |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
  *               |   `  | Tab  |                                                         |      |      |
  *               '------+------'-------------'                             '-------------'------+------'
@@ -158,7 +158,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_MOVE] = KEYMAP_5x6(
   // left hand
   _______, _______, _______, _______, _______, _______,
-  _______, _______,   KC_WH_U, KC_MS_U, KC_WH_D,  KC_WH_U,
+  _______, KC_PSCR,   KC_WH_U, KC_MS_U, KC_WH_D,  KC_WH_U,
   _______, KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R,  KC_LGUI,
   _______, KC_BTN1, KC_BTN5, KC_BTN2, KC_BTN3,  KC_WH_D,
             KC_GRV,  KC_TAB, 
@@ -169,7 +169,7 @@ const uint16_t  PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     _______, _______, _______, _______, _______, _______,
                      KC_PGUP, KC_HOME, KC_UP, KC_END, KC_DEL, _______,
                      KC_PGDN, KC_LEFT, KC_DOWN,   KC_RIGHT, KC_BSPC, _______,
-                     KC_CAPS, KC_PSCR,  KC_INS,  KC_TAB,  _______, _______,
+                     KC_CAPS, _______,  KC_INS,  KC_TAB,  _______, _______,
                                        _______, _______,
         SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
   _______, _______,
