@@ -158,7 +158,7 @@ void terminal_keymap(void) {
             for (int c = 0; c < MATRIX_COLS; c++) {
                 uint16_t keycode = pgm_read_word(&keymaps[layer][r][c]);
                 char keycode_s[8];
-                sprintf(keycode_s, "0x%04x, ", keycode);
+                sprintf(keycode_s, "0x%04x,", keycode);
                 send_string(keycode_s);
             }
             send_string(newline);
@@ -273,11 +273,17 @@ bool process_terminal(uint16_t keycode, keyrecord_t *record) {
             disable_terminal();
             return false;
         }
+
+        if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) || (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) {
+            keycode = keycode & 0xFF;
+        }
+
         if (keycode < 256) {
             uint8_t str_len;
             char char_to_add;
             switch (keycode) {
                 case KC_ENTER:
+                case KC_KP_ENTER:
                     push_to_cmd_buffer();
                     current_cmd_buffer_pos = 0;
                     process_terminal_command();
