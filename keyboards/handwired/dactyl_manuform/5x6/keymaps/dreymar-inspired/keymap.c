@@ -1,10 +1,12 @@
 /*
 a Colemak layout for the dactyl manuform 5x6 keyboard, with movement layer heavily inspired by Dreymar's Extend layer
 https://forum.colemak.com/topic/2014-extend-extra-extreme/#p16698
+
+A color coded layout can be seen at
+http://www.keyboard-layout-editor.com/#/gists/912cdf9fcc5e0ade76471bf2d6c362e3
 */
 
 #include QMK_KEYBOARD_H
-
 
 #define _BASE 0
 #define _MOVE 1
