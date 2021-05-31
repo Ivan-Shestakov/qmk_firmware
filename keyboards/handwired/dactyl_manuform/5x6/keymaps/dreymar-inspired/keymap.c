@@ -23,6 +23,8 @@ http://www.keyboard-layout-editor.com/#/gists/912cdf9fcc5e0ade76471bf2d6c362e3
 #define RS(kc) MT(MOD_RSFT, kc)
 #define LC(kc) MT(MOD_LCTL, kc)
 #define RC(kc) MT(MOD_RCTL, kc)
+#define LG(kc) LGUI_T(kc)//MT(MOD_LGUI, kc)
+#define RG(kc) RGUI_T(kc)//MT(MOD_RGUI, kc)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* _BASE (COLEMAK)
@@ -33,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | tab  |   q  |   w  |   f  |   p  |   g  |                             |   j  |   l  |   u  |   y  |   '  | ent  |
  * |------+------+------+------+------+------|                             |-------------+------+------+------+------|
  * | shft |   a  |   r  |   s  |   t  |   d  |                             |   h  |   n  |   e  |   i  |   o  | shft |
- * |      |  alt |      |      | ctrl |      |                             |      | ctrl |      |      |  alt |      |
+ * |      |  gui |  alt | ctrl | shft |      |                             |      | shft | ctrl |  alt |  gui |      |
  * |------+------+------+------+------+------|                             |------|------+------+------+------+------|
  * | ctrl |   z  |   x  |   c  |   v  |   b  |                             |   k  |   m  |   ,  |   .  |   /  | ctrl |
- * |      | shft |      |      |      |      |                             |      |      |      |      | shft |      |
+ * |      | shft |      |      |      |      |                             |      |      |      |      |      |      |
  * '------+------+------+------+-------------,                             ,-------------+------+------+------+------'
  *               |  alt | lwin |                                                         |insert|   ;  |
  *               '------+------'-------------'                             '-------------'------+------'
@@ -53,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_5x6(
    KC_ESC , KC_1    , KC_2  , KC_3 , KC_4   , KC_5 ,                       KC_6,  KC_7    , KC_8   ,   KC_9,  KC_0    , KC_BSPC,
    KC_TAB , KC_Q    , KC_W  , KC_F , KC_P   , KC_G ,                       KC_J,  KC_L    , KC_U   ,   KC_Y,  KC_QUOT , KC_ENT,
-   KC_LSFT, LA(KC_A), KC_R  , KC_S ,LC(KC_T), KC_D ,                       KC_H,  RC(KC_N), KC_E   ,   KC_I,  RA(KC_O), KC_RSFT,
-   KC_LCTL, LS(KC_Z), KC_X  , KC_C , KC_V   , KC_B ,   		               KC_K,  KC_M    , KC_COMM, KC_DOT,RS(KC_SLSH),KC_RCTL,
+   KC_LSFT, LG(KC_A),LA(KC_R),LC(KC_S),LS(KC_T),KC_D ,                    KC_H,RS(KC_N),RC(KC_E),RA(KC_I),RG(KC_O), KC_RSFT,
+   KC_LCTL,  KC_Z   , KC_X  , KC_C , KC_V   , KC_B ,   		               KC_K,  KC_M    , KC_COMM, KC_DOT, KC_SLSH ,KC_RCTL,
                       KC_LALT,  KC_LWIN,                                          KC_INS, KC_SCLN,
                                	LT(_SYM, KC_SPC), SFT_T(KC_ENT),    SFT_T(KC_BSPC), LT(_SYM, KC_DEL),
                                 LT(_MOVE, KC_ESC), GUI_T(KC_TAB),   GUI_T(KC_TAB), LT(_MOVE, KC_ESC),
